@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>OG — GlicoDose Médicos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,600;9..40,700;9..40,800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; font-family: "DM Sans", system-ui, sans-serif; color: #121212; }
+    .frame {
+      width: 1200px; height: 630px; position: relative;
+      background:
+        radial-gradient(ellipse 55% 70% at 5% 20%, #9ec4ef 0%, transparent 55%),
+        radial-gradient(ellipse 40% 55% at 100% 0%, #c5d8f0 0%, transparent 50%),
+        linear-gradient(160deg, #e8f1f9 0%, #f3f6fa 45%, #fff 100%);
+    }
+    .frame::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(47, 124, 196, 0.07) 1px, transparent 0);
+      background-size: 22px 22px; pointer-events: none;
+    }
+    .copy { position: absolute; left: 64px; top: 130px; width: 420px; z-index: 2; }
+    .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+    .brand img { width: 64px; height: 64px; border-radius: 16px; background: #111; box-shadow: 0 8px 20px rgba(30, 90, 148, 0.25); }
+    .brand-name { font-family: "Fraunces", Georgia, serif; font-size: 42px; font-weight: 700; color: #1e5a94; line-height: 1; }
+    .brand-tag { margin-top: 4px; font-size: 16px; font-weight: 600; color: #5a6570; }
+    .headline { font-family: "Fraunces", Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+    .headline span { color: #2f7cc4; }
+    .sub { margin-top: 16px; font-size: 18px; line-height: 1.4; color: #5a6570; font-weight: 500; }
+    .laptop {
+      position: absolute; right: 40px; top: 90px; width: 640px;
+      transform: rotate(2deg); z-index: 2;
+    }
+    .screen {
+      background: #1a2430; border-radius: 11px 11px 0 0; padding: 8px 8px 0;
+      box-shadow: 0 28px 50px rgba(18, 40, 70, 0.26);
+    }
+    .bezel { background: #fff; border-radius: 5px 5px 0 0; overflow: hidden; height: 360px; }
+    .bar {
+      display: flex; align-items: center; gap: 8px; padding: 8px 10px;
+      background: #eef2f7; border-bottom: 1px solid #c5d0db;
+    }
+    .traffic { display: flex; gap: 5px; }
+    .traffic i { width: 8px; height: 8px; border-radius: 50%; display: block; }
+    .r { background: #ff5f57; } .y { background: #febc2e; } .g { background: #28c840; }
+    .url {
+      flex: 1; background: #fff; border: 1px solid #c5d0db; border-radius: 4px;
+      padding: 3px 8px; font-size: 11px; color: #5a6570; font-weight: 600;
+    }
+    .portal {
+      height: calc(100% - 32px);
+      background: radial-gradient(ellipse 80% 50% at 10% -10%, #a8c4f8 0%, transparent 55%), #e8eef8;
+      display: grid; grid-template-columns: 140px 1fr;
+    }
+    .sidebar { background: rgba(255,255,255,0.85); border-right: 1px solid #c0cce4; padding: 14px 12px; }
+    .side-brand { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+    .side-brand img { width: 24px; height: 24px; border-radius: 6px; background: #111; }
+    .side-brand strong { font-size: 13px; display: block; }
+    .side-brand small { font-size: 10px; color: #5a6478; font-weight: 600; }
+    .nav { padding: 8px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #5a6478; margin-bottom: 4px; }
+    .nav.on { background: #3078e4; color: #fff; }
+    .main { padding: 16px 18px; }
+    .main h2 { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+    .main p { font-size: 12px; color: #5a6478; margin-bottom: 14px; font-weight: 500; }
+    .patient {
+      background: #fff; border: 1px solid #c0cce4; border-radius: 10px;
+      padding: 12px 14px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .patient strong { display: block; font-size: 14px; margin-bottom: 2px; }
+    .patient span { font-size: 11px; color: #5a6478; font-weight: 600; }
+    .btn { background: #3078e4; color: #fff; border-radius: 5px; padding: 6px 10px; font-size: 11px; font-weight: 700; }
+    .base { height: 14px; background: linear-gradient(180deg, #c5d0db, #9aa8b8); border-radius: 0 0 5px 5px; }
+    .stand {
+      margin: 0 auto; width: 720px; height: 12px;
+      background: linear-gradient(180deg, #a8b4c4, #8a96a6);
+      border-radius: 0 0 14px 14px; transform: translateX(-40px);
+      box-shadow: 0 8px 16px rgba(18, 40, 70, 0.14);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="copy">
+      <div class="brand">
+        <img src="../public/glucosemeter.png" alt="" />
+        <div>
+          <div class="brand-name">GlicoDose</div>
+          <div class="brand-tag">Portal Médicos</div>
+        </div>
+      </div>
+      <h1 class="headline">Acompanhe pacientes<br /><span>com segurança</span></h1>
+      <p class="sub">Vínculo por código, histórico e gráficos em modo leitura.</p>
+    </div>
+    <div class="laptop">
+      <div class="screen">
+        <div class="bezel">
+          <div class="bar">
+            <div class="traffic"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+            <div class="url">medicos.glicodose.app / pacientes</div>
+          </div>
+          <div class="portal">
+            <aside class="sidebar">
+              <div class="side-brand">
+                <img src="../public/glucosemeter.png" alt="" />
+                <div>
+                  <strong>GlicoDose</strong>
+                  <small>Médicos</small>
+                </div>
+              </div>
+              <div class="nav on">Pacientes</div>
+              <div class="nav">Vincular</div>
+              <div class="nav">Perfil</div>
+            </aside>
+            <section class="main">
+              <h2>Pacientes</h2>
+              <p>Busque e acompanhe os pacientes vinculados.</p>
+              <div class="patient">
+                <div>
+                  <strong>Maria Silva</strong>
+                  <span>Código A7K2M9</span>
+                </div>
+                <div class="btn">Ver histórico</div>
+              </div>
+              <div class="patient">
+                <div>
+                  <strong>João Santos</strong>
+                  <span>Código B3P8Q1</span>
+                </div>
+                <div class="btn">Ver histórico</div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="base"></div>
+      <div class="stand"></div>
+    </div>
+  </div>
+</body>
+</html>
