@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function SiteFooter() {
   return (
     <footer className="bg-white/60">
@@ -6,6 +8,20 @@ export function SiteFooter() {
         <p className="text-sm text-muted">
           App do paciente e portal para médicos.
         </p>
+        <nav
+          className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold"
+          aria-label="Rodapé"
+        >
+          <Link to="/" className="text-brand-dark hover:text-brand">
+            App
+          </Link>
+          <Link to="/medicos" className="text-brand-dark hover:text-brand">
+            Médicos
+          </Link>
+          <Link to="/apoiar" className="text-brand-dark hover:text-brand">
+            Apoiar
+          </Link>
+        </nav>
         <p className="mt-3 text-xs text-muted/70">
           © {new Date().getFullYear()} GlicoDose
         </p>

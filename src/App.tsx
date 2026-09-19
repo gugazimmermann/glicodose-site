@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import { ScrollToTop } from './components/ScrollToTop'
 import { SiteFooter } from './components/SiteFooter'
 import { SiteHeader } from './components/SiteHeader'
+import { ApoiarPage } from './pages/ApoiarPage'
 import { HomePage } from './pages/HomePage'
 import { MedicosPage } from './pages/MedicosPage'
 import { usePageMeta } from './hooks/usePageMeta'
@@ -17,6 +18,7 @@ function AppShell() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/medicos" element={<MedicosPage />} />
+          <Route path="/apoiar" element={<ApoiarPage />} />
         </Routes>
       </main>
       <SiteFooter />

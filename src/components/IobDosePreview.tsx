@@ -2,10 +2,7 @@
 export function IobDosePreview({ className = '' }: { className?: string }) {
   return (
     <div
-      className={[
-        'relative w-full max-w-sm',
-        className,
-      ].join(' ')}
+      className={['relative w-full max-w-sm', className].join(' ')}
       aria-hidden
     >
       <div
@@ -19,11 +16,11 @@ export function IobDosePreview({ className = '' }: { className?: string }) {
         <div className="rounded-xl border border-[#e2e8f0] bg-white px-3 py-3">
           <div className="mb-2 flex items-center gap-2 text-xs font-bold text-ink">
             <i className="size-2 rounded-full bg-brand" />
-            Estimativa com IA
+            Alimentação
           </div>
-          <p className="mb-3 text-sm text-muted">2 pães franceses com queijo</p>
-          <div className="rounded-xl bg-brand py-3 text-center text-sm font-bold text-white">
-            Calcular dose
+          <p className="mb-3 text-sm text-muted">Ex: 2 pães franceses com queijo</p>
+          <div className="rounded-xl bg-brand px-2 py-3 text-center text-sm font-bold text-white">
+            Estimar carbs e calcular
           </div>
         </div>
       </div>

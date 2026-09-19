@@ -20,10 +20,22 @@ npm run dev
 - `/` — landing do app do paciente
 - `/medicos` — landing do portal médico
 
-## Assets Open Graph
+## Assets de marketing
 
 ```bash
 npm run export-assets
 ```
 
-Gera `public/media/og-app.png` e `public/media/og-medicos.png` via Chrome headless (mesmo padrão de `/divulgacao`).
+Gera via Chrome headless (+ ffmpeg):
+
+- `public/media/og-app.png` e `og-medicos.png` (Open Graph)
+- `public/media/feature-*.png` (cenas do app e do portal)
+- `public/media/promo-app.mp4` e `promo-medicos.mp4` (vídeos silenciosos com Ken Burns)
+
+Requer `google-chrome` no PATH. Para vídeos, usa `../divulgacao/video/bin/ffmpeg` ou `FFMPEG=…`.
+
+```bash
+npm run export-assets -- --skip-video
+```
+
+Pula a geração dos MP4.

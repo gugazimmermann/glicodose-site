@@ -39,6 +39,9 @@ export function SiteHeader() {
           <NavLink to="/medicos" className={linkClass}>
             Médicos
           </NavLink>
+          <NavLink to="/apoiar" className={linkClass}>
+            Apoiar
+          </NavLink>
         </nav>
 
         <button
@@ -67,6 +70,13 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
           >
             Médicos
+          </NavLink>
+          <NavLink
+            to="/apoiar"
+            className={linkClass}
+            onClick={() => setOpen(false)}
+          >
+            Apoiar
           </NavLink>
         </nav>
       ) : null}

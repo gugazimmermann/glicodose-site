@@ -8,14 +8,20 @@ const META: Record<
   '/': {
     title: 'GlicoDose — App do paciente',
     description:
-      'Registre glicose e alimentação (texto, foto ou voz), receba estimativa de insulina com IA e IOB. Ferramenta de apoio — não substitui orientação médica.',
+      'Glicose, alimentação por texto/foto/voz e estimativa de insulina com IA e IOB. Histórico compartilhado com o médico por código. Ferramenta de apoio — não substitui orientação médica.',
     ogImage: '/media/og-app.png',
   },
   '/medicos': {
     title: 'GlicoDose Médicos — Portal para profissionais',
     description:
-      'Vincule pacientes por código e acompanhe glicemia, alimentação e insulina com gráficos em modo leitura.',
+      'Portal para médicos: vincule pacientes por código, acompanhe histórico e gráficos, e use a Análise com IA para revisar discrepâncias e possíveis ajustes — em apoio à consulta.',
     ogImage: '/media/og-medicos.png',
+  },
+  '/apoiar': {
+    title: 'Apoiar o GlicoDose',
+    description:
+      'O app e o portal são gratuitos. Assinatura mensal opcional ajuda a manter infraestrutura e IA do GlicoDose.',
+    ogImage: '/media/og-app.png',
   },
 }
 
