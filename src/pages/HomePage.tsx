@@ -6,6 +6,7 @@ import { FeatureGrid } from '../components/FeatureGrid'
 import { MediaFrame } from '../components/MediaFrame'
 import { SectionHeading } from '../components/SectionHeading'
 import { StepTimeline } from '../components/StepTimeline'
+import { SITE_URLS } from '../lib/siteUrls'
 
 const CAPABILITIES = [
   'Texto',
@@ -39,7 +40,7 @@ const FEATURES = [
   },
   {
     title: 'Histórico e vínculo com o médico',
-    body: 'Registre glicose, refeições e doses. Com um código de seis caracteres, o profissional acompanha tudo no portal — em modo leitura.',
+    body: 'Registre glicose, refeições e doses. Com um código de seis caracteres, o profissional acompanha o histórico no portal e pode ajustar a prescrição usada no app.',
     image: '/media/feature-app-code.png',
     imageAlt: 'Tela do app mostrando o código de vínculo A7K2M9',
   },
@@ -96,7 +97,16 @@ export function HomePage() {
               organismo (IOB).
             </p>
             <div className="mt-9 flex animate-fade-up delay-1 flex-wrap items-center gap-3">
-              <CtaButton />
+              <CtaButton href={SITE_URLS.playStore} external>
+                Baixar no Android
+              </CtaButton>
+              <CtaButton
+                href={SITE_URLS.appStore}
+                external
+                className="!bg-brand-dark"
+              >
+                Baixar no iPhone
+              </CtaButton>
               <Link
                 to="/apoiar"
                 className="inline-flex items-center justify-center rounded-xl border border-brand/40 bg-white/80 px-6 py-3 text-base font-bold text-brand-dark shadow-sm transition-colors hover:border-brand hover:bg-white"
@@ -159,7 +169,7 @@ export function HomePage() {
           <div>
             <SectionHeading
               title="Seu médico vê o histórico"
-              subtitle="Com um código de seis caracteres, o profissional acompanha glicemia, refeições e insulina no portal — em modo leitura, sem acessar sua senha."
+              subtitle="Com um código de seis caracteres, o profissional acompanha glicemia, refeições e insulina no portal, e pode ajustar a prescrição usada no app — sem acessar sua senha."
             />
             <Link to="/medicos" className="text-link mt-6">
               Conhecer o portal para médicos

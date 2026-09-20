@@ -203,7 +203,7 @@ export const SCENES = [
           copyBlock({
             eyebrow: 'Vínculo seguro',
             headline: 'Seis caracteres.<br/><span>Sem senha.</span>',
-            sub: 'O paciente gera o código no app. Você digita no portal. Histórico em modo leitura.',
+            sub: 'O paciente gera o código no app. Você digita no portal. Histórico, gráficos e prescrição.',
             pills: ['A7K2M9', 'Mono'],
           }),
           laptopShell(

@@ -6,6 +6,7 @@ import { FeatureGrid } from '../components/FeatureGrid'
 import { MediaFrame } from '../components/MediaFrame'
 import { SectionHeading } from '../components/SectionHeading'
 import { StepTimeline } from '../components/StepTimeline'
+import { SITE_URLS } from '../lib/siteUrls'
 
 const CAPABILITIES = [
   'Análise com IA',
@@ -27,7 +28,7 @@ const FEATURES = [
   },
   {
     title: 'Vínculo em 6 caracteres',
-    body: 'O paciente gera o código no app. Você digita no portal. Sem compartilhar senha — só o histórico em modo leitura.',
+    body: 'O paciente gera o código no app. Você digita no portal. Sem compartilhar senha — histórico, gráficos e edição da prescrição (FSI, I:C, metas).',
     image: '/media/feature-medicos-link.png',
     imageAlt: 'Tela de vínculo por código no portal médico',
   },
@@ -96,7 +97,9 @@ export function MedicosPage() {
               consulta.
             </p>
             <div className="mt-9 flex animate-fade-up delay-1 flex-wrap items-center gap-3">
-              <CtaButton />
+              <CtaButton href={SITE_URLS.medicosPortal} external>
+                Acessar o portal
+              </CtaButton>
               <Link
                 to="/apoiar"
                 className="inline-flex items-center justify-center rounded-xl border border-brand/40 bg-white/80 px-6 py-3 text-base font-bold text-brand-dark shadow-sm transition-colors hover:border-brand hover:bg-white"

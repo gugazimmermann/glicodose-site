@@ -1,27 +1,40 @@
 type CtaButtonProps = {
-  children?: string
+  href: string
+  children: string
   className?: string
+  external?: boolean
 }
 
 export function CtaButton({
-  children = 'Em breve',
+  href,
+  children,
   className = '',
+  external = false,
 }: CtaButtonProps) {
+  const classes = [
+    'inline-flex items-center justify-center rounded-xl',
+    'bg-brand px-6 py-3 text-base font-bold text-white no-underline',
+    'shadow-lg shadow-brand-dark/20',
+    'transition-[opacity,transform] duration-200 hover:opacity-95 hover:-translate-y-0.5',
+    className,
+  ].join(' ')
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        className={classes}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    )
+  }
+
   return (
-    <button
-      type="button"
-      disabled
-      className={[
-        'inline-flex cursor-not-allowed items-center justify-center rounded-xl',
-        'bg-brand px-6 py-3 text-base font-bold text-white',
-        'opacity-80 shadow-lg shadow-brand-dark/20',
-        'transition-[opacity,transform] duration-200',
-        className,
-      ].join(' ')}
-      aria-disabled="true"
-      title="Disponível em breve"
-    >
+    <a href={href} className={classes}>
       {children}
-    </button>
+    </a>
   )
 }
