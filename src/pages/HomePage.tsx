@@ -5,7 +5,6 @@ import { DisclaimerBand } from '../components/DisclaimerBand'
 import { FeatureGrid } from '../components/FeatureGrid'
 import { MediaFrame } from '../components/MediaFrame'
 import { SectionHeading } from '../components/SectionHeading'
-import { StepTimeline } from '../components/StepTimeline'
 import { SITE_URLS } from '../lib/siteUrls'
 
 const CAPABILITIES = [
@@ -43,24 +42,6 @@ const FEATURES = [
     body: 'Registre glicose, refeições e doses. Com um código de seis caracteres, o profissional acompanha o histórico no portal e pode ajustar a prescrição usada no app.',
     image: '/media/feature-app-code.png',
     imageAlt: 'Tela do app mostrando o código de vínculo A7K2M9',
-  },
-]
-
-const STEPS = [
-  {
-    n: '1',
-    title: 'Glicose',
-    body: 'Informe o valor atual em mg/dL — o ponto de partida da estimativa.',
-  },
-  {
-    n: '2',
-    title: 'Refeição',
-    body: 'Descreva por texto, envie uma foto ou use o botão Falar.',
-  },
-  {
-    n: '3',
-    title: 'Estimativa',
-    body: 'Receba a dose sugerida com IOB descontado e registre o que aplicou.',
   },
 ]
 
@@ -140,12 +121,25 @@ export function HomePage() {
       </section>
 
       <section className="section-band border-t border-line/40">
-        <div className="section-inner">
-          <SectionHeading
-            title="Do registro à dose"
-            subtitle="Três passos no momento em que você precisa calcular — com a IA ajudando na refeição e no IOB."
+        <div className="section-inner grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div>
+            <SectionHeading
+              title="Como usar o app"
+              subtitle="Do cadastro ao perfil prescrito, da dose com IA à confirmação da insulina aplicada, e o código para o médico acompanhar — tudo no guia passo a passo."
+            />
+            <Link
+              to="/como-usar#paciente"
+              className="text-link mt-6 inline-flex items-center gap-1"
+            >
+              Ver guia completo
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+          <MediaFrame
+            src="/media/feature-app-meal.png"
+            alt="Registro de refeição no app"
+            className="mx-auto max-w-md lg:max-w-none"
           />
-          <StepTimeline steps={STEPS} className="mt-12 sm:mt-14" />
         </div>
       </section>
 

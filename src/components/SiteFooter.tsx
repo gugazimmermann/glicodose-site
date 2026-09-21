@@ -18,6 +18,9 @@ export function SiteFooter() {
           <Link to="/medicos" className="text-brand-dark hover:text-brand">
             Médicos
           </Link>
+          <Link to="/como-usar" className="text-brand-dark hover:text-brand">
+            Como usar
+          </Link>
           <Link to="/apoiar" className="text-brand-dark hover:text-brand">
             Apoiar
           </Link>

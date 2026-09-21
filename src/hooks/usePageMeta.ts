@@ -24,6 +24,12 @@ const META: Record<
       'O app e o portal são gratuitos. Assinatura mensal opcional ajuda a manter infraestrutura e IA do GlicoDose.',
     ogImage: '/media/og-app.png',
   },
+  '/como-usar': {
+    title: 'Como usar o GlicoDose',
+    description:
+      'Guia passo a passo: app do paciente (perfil, dose com IA, IOB, histórico) e portal médico (vínculo por código, prescrição, Análise com IA).',
+    ogImage: '/media/og-app.png',
+  },
 }
 
 function absoluteUrl(path: string): string {

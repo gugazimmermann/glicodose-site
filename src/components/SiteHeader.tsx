@@ -39,6 +39,9 @@ export function SiteHeader() {
           <NavLink to="/medicos" className={linkClass}>
             Médicos
           </NavLink>
+          <NavLink to="/como-usar" className={linkClass}>
+            Como usar
+          </NavLink>
           <NavLink to="/apoiar" className={linkClass}>
             Apoiar
           </NavLink>
@@ -70,6 +73,13 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
           >
             Médicos
+          </NavLink>
+          <NavLink
+            to="/como-usar"
+            className={linkClass}
+            onClick={() => setOpen(false)}
+          >
+            Como usar
           </NavLink>
           <NavLink
             to="/apoiar"

@@ -5,7 +5,6 @@ import { DisclaimerBand } from '../components/DisclaimerBand'
 import { FeatureGrid } from '../components/FeatureGrid'
 import { MediaFrame } from '../components/MediaFrame'
 import { SectionHeading } from '../components/SectionHeading'
-import { StepTimeline } from '../components/StepTimeline'
 import { SITE_URLS } from '../lib/siteUrls'
 
 const CAPABILITIES = [
@@ -43,24 +42,6 @@ const FEATURES = [
     body: 'No histórico, escolha o período e rode a Análise com IA: discrepâncias, irregularidades e possíveis ajustes de FSI, I:C e metas — apoio à revisão clínica.',
     image: '/media/feature-medicos-ai.png',
     imageAlt: 'Painel Análise com IA no portal médico',
-  },
-]
-
-const STEPS = [
-  {
-    n: '1',
-    title: 'Criar conta',
-    body: 'Cadastre-se no portal com e-mail, senha e nome profissional.',
-  },
-  {
-    n: '2',
-    title: 'Digitar o código',
-    body: 'Peça ao paciente o código de seis caracteres gerado no app.',
-  },
-  {
-    n: '3',
-    title: 'Acompanhar',
-    body: 'Abra o histórico, use os gráficos e a Análise com IA na consulta.',
   },
 ]
 
@@ -148,12 +129,25 @@ export function MedicosPage() {
       </section>
 
       <section className="section-band section-band-white border-t border-line/40">
-        <div className="section-inner">
-          <SectionHeading
-            title="Como funciona"
-            subtitle="Do cadastro à Análise com IA na consulta — três passos."
+        <div className="section-inner grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div>
+            <SectionHeading
+              title="Como usar o portal"
+              subtitle="Conta profissional, vínculo por código, alertas e gráficos, edição da prescrição e Análise com IA — o guia completo para a consulta."
+            />
+            <Link
+              to="/como-usar#medico"
+              className="text-link mt-6 inline-flex items-center gap-1"
+            >
+              Ver guia completo
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+          <MediaFrame
+            src="/media/feature-medicos-link.png"
+            alt="Vínculo de paciente por código no portal"
+            className="mx-auto max-w-md lg:max-w-none"
           />
-          <StepTimeline steps={STEPS} className="mt-12 sm:mt-14" />
         </div>
       </section>
 

@@ -15,6 +15,7 @@ Landing pages do produto GlicoDose — app do paciente, portal médico e apoio (
 | --- | --- |
 | `/` | Landing do app do paciente — CTAs para Play Store / App Store |
 | `/medicos` | Landing do portal — CTA para `medicos.glicodose.app` |
+| `/como-usar` | Guia passo a passo (toggle Paciente / Médico; âncoras `#paciente` e `#medico`) |
 | `/apoiar` | Assinatura mensal opcional (Stripe Checkout público) |
 
 Copy alinhada ao produto atual: o médico acompanha histórico **e** pode editar a prescrição usada no app.
