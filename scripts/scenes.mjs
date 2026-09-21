@@ -26,9 +26,9 @@ export const SCENES = [
         body: frame(
           copyBlock({
             eyebrow: 'App do paciente',
-            headline: 'Glicose, refeição<br/>e dose — <span>com IOB</span>',
-            sub: 'A estimativa usa o perfil prescrito e já desconta a insulina ainda ativa.',
-            pills: ['IA', 'IOB', 'mg/dL'],
+            headline: 'Glicose do sensor<br/>e dose — <span>com IOB</span>',
+            sub: 'LibreLinkUp preenche a glicose na Dose. A estimativa usa o perfil prescrito e já desconta a insulina ainda ativa.',
+            pills: ['LibreLinkUp', 'IOB', 'mg/dL'],
           }),
           phoneShell(
             `
@@ -36,7 +36,9 @@ export const SCENES = [
             <div class="ph-disclaimer">Estimativa com base no seu perfil. Não substitui orientação médica.</div>
             <div class="ph-card">
               <div class="ph-label"><i class="dot r"></i> Glicose atual</div>
-              <div class="ph-glucose">142<span>mg/dL</span></div>
+              <div class="ph-glucose">142<span>mg/dL</span>
+                <div class="ph-libre"><span class="pulse"></span>Libre · há 3 min</div>
+              </div>
             </div>
             <div class="ph-card">
               <div class="ph-label"><i class="dot b"></i> Alimentação</div>
@@ -93,8 +95,8 @@ export const SCENES = [
           copyBlock({
             eyebrow: 'Estimativa com IA',
             headline: 'Dose sugerida<br/>com <span>perfil − IOB</span>',
-            sub: 'Carbs estimados + sensibilidade e razão I:C do seu perfil. Sempre uma ferramenta de apoio.',
-            pills: ['~4,5 U', 'IOB descontado'],
+            sub: 'Carbs estimados com confiança + sensibilidade e razão I:C do seu perfil. Sempre uma ferramenta de apoio.',
+            pills: ['~4,5 U', 'IOB descontado', 'Confiança'],
           }),
           phoneShell(
             `
@@ -103,7 +105,7 @@ export const SCENES = [
               <div class="ph-result-sub">Estimativa de carbs (IA) + sua fórmula</div>
               <div class="ph-result-dose">4,5 <small>U</small></div>
               <div class="ph-warn">IOB descontado: 2 U (insulina ainda ativa)</div>
-              <div class="ph-chips"><span>Carbs · 45 g</span><span>Correção · 1,2 U</span><span>Comida · 5,3 U</span></div>
+              <div class="ph-chips"><span>Carbs · 45 g</span><span class="conf">Confiança · média</span><span>Correção · 1,2 U</span><span>Comida · 5,3 U</span></div>
             </div>
             <div class="ph-card">
               <div class="ph-field-label">Insulina aplicada (U)</div>
@@ -129,14 +131,14 @@ export const SCENES = [
           copyBlock({
             eyebrow: 'Compartilhar com o médico',
             headline: 'Código de<br/><span>6 caracteres</span>',
-            sub: 'O profissional digita no portal e vê glicemia, refeições e insulina — só leitura.',
-            pills: ['Sem senha', 'Somente leitura'],
+            sub: 'O profissional digita no portal, vê o histórico e pode ajustar a prescrição usada no app — sem acessar sua senha.',
+            pills: ['Sem senha', 'Prescrição'],
           }),
           phoneShell(
             `
             <div class="ph-card ph-code-card">
               <div class="title">Código para o médico</div>
-              <div class="body">Compartilhe este código com seu médico para ele acompanhar seu histórico.</div>
+              <div class="body">Compartilhe este código com seu médico para ele acompanhar seu histórico e ajustar a prescrição.</div>
               <div class="ph-code-row"><span class="code">A7K2M9</span><span class="copy">⎘</span></div>
             </div>
             <div class="ph-rx">
@@ -146,6 +148,33 @@ export const SCENES = [
           `,
             { title: 'Perfil', tab: 'Perfil', flat: true },
           ),
+        ),
+      }),
+  },
+  {
+    id: 'feature-app-widget',
+    group: 'app',
+    title: 'App — widget IOB',
+    build: () =>
+      wrapScene({
+        title: 'feature-app-widget',
+        body: frame(
+          copyBlock({
+            eyebrow: 'Na tela inicial',
+            headline: 'Glicose e IOB<br/>no <span>widget</span>',
+            sub: 'No Android, fixe o widget GlicoDose: glicose do LibreLinkUp com tendência e insulina rápida ainda ativa — sem abrir o app.',
+            pills: ['Libre', 'IOB ao vivo', 'Android'],
+          }),
+          `<div class="home-widget-stage">
+            <div class="wallpaper-clock">9:41</div>
+            <div class="wallpaper-date">segunda-feira, 21 de setembro</div>
+            <div class="gd-widget">
+              <div class="wh"><span class="name">GlicoDose</span><span class="sync">↻</span></div>
+              <div class="glu-row"><span class="glu">142</span><span class="trend">↗</span></div>
+              <div class="meta">Libre · há 3 min</div>
+              <div class="iob">2 U ativas</div>
+            </div>
+          </div>`,
         ),
       }),
   },

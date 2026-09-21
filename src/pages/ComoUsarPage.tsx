@@ -31,7 +31,7 @@ const PATIENT_STEPS: HowToStep[] = [
   {
     n: '4',
     title: 'Opcional: Linkar Sensor',
-    body: 'No Perfil ou na Dose, conecte sua conta de seguidor do LibreLinkUp para preencher a glicose a partir do sensor — ou continue digitando o valor manualmente.',
+    body: 'No Perfil ou na Dose, conecte sua conta de seguidor do LibreLinkUp para preencher a glicose a partir do sensor. Essa mesma leitura alimenta o widget na tela inicial (Android) — ou continue digitando o valor manualmente.',
   },
   {
     n: '5',
@@ -43,17 +43,24 @@ const PATIENT_STEPS: HowToStep[] = [
   {
     n: '6',
     title: 'Confirme a dose aplicada',
-    body: 'Veja a insulina sugerida com IOB já descontado. Ajuste se precisar e confirme o que você aplicou — essa dose entra no cálculo de insulina ainda ativa.',
+    body: 'Veja a insulina sugerida com IOB já descontado e a confiança dos carbs. Ajuste se precisar e confirme o que você aplicou — essa dose entra no cálculo de insulina ainda ativa.',
     image: '/media/feature-app-result.png',
     imageAlt: 'Resultado da estimativa de dose com IOB',
   },
   {
     n: '7',
-    title: 'Acompanhe e exporte o histórico',
-    body: 'Na aba Histórico, revise registros e gráficos. Pelo menu Exportar, envie CSV ou um relatório em texto para a consulta.',
+    title: 'IOB ao vivo e widget',
+    body: 'Depois da confirmação, o IOB continua atualizando no ícone do app e na barra de status. No Android, adicione o widget GlicoDose na tela inicial para ver glicose do sensor e insulina ativa sem abrir o app.',
+    image: '/media/feature-app-widget.png',
+    imageAlt: 'Widget do GlicoDose com glicose e IOB',
   },
   {
     n: '8',
+    title: 'Acompanhe e exporte o histórico',
+    body: 'Na aba Histórico, revise registros e gráficos. Em Exportar, envie um CSV ou um relatório em texto para a consulta.',
+  },
+  {
+    n: '9',
     title: 'Compartilhe o código com o médico',
     body: 'No Perfil, copie o código de seis caracteres. Seu médico digita no portal para ver o histórico e ajustar a prescrição — sem acessar sua senha.',
     image: '/media/feature-app-code.png',

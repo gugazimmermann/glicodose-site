@@ -9,7 +9,7 @@ const META: Record<
   '/': {
     title: 'GlicoDose — App do paciente',
     description:
-      'Glicose, alimentação por texto/foto/voz e estimativa de insulina com IA e IOB. Histórico compartilhado com o médico por código. Ferramenta de apoio — não substitui orientação médica.',
+      'Glicose (manual ou LibreLinkUp), alimentação por texto/foto/voz e estimativa de insulina com IA e IOB ao vivo — inclusive no widget. Histórico e export compartilhados com o médico por código. Ferramenta de apoio — não substitui orientação médica.',
     ogImage: '/media/og-app.png',
   },
   '/medicos': {
@@ -27,7 +27,7 @@ const META: Record<
   '/como-usar': {
     title: 'Como usar o GlicoDose',
     description:
-      'Guia passo a passo: app do paciente (perfil, dose com IA, IOB, histórico) e portal médico (vínculo por código, prescrição, Análise com IA).',
+      'Guia passo a passo: app do paciente (perfil, sensor LibreLinkUp, dose com IA, IOB ao vivo, widget, export) e portal médico (vínculo por código, prescrição, Análise com IA).',
     ogImage: '/media/og-app.png',
   },
 }

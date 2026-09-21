@@ -104,6 +104,66 @@ html, body {
   padding: 10px; text-align: center; font-size: 32px; font-weight: 800; line-height: 1; color: #121212;
 }
 .ph-glucose span { display: block; margin-top: 4px; font-size: 10px; font-weight: 600; color: #5a6570; }
+.ph-libre {
+  display: inline-flex; align-items: center; gap: 5px; margin-top: 8px;
+  background: #fff; border: 1px solid rgba(47,124,196,.3); border-radius: 999px;
+  padding: 4px 10px; font-size: 9px; font-weight: 700; color: #1e5a94;
+}
+.ph-libre .pulse {
+  width: 6px; height: 6px; border-radius: 50%; background: #2f7cc4;
+}
+.ph-chips span.conf {
+  background: #e8f8ef; color: #1b6b3a;
+}
+.home-widget-stage {
+  position: absolute; right: 90px; top: 140px; width: 340px; height: 520px;
+  border-radius: 28px; overflow: hidden; z-index: 2;
+  background:
+    linear-gradient(165deg, #1a2740 0%, #243552 45%, #1c2838 100%);
+  box-shadow: 0 28px 50px rgba(18,40,70,.32);
+  padding: 28px 22px;
+}
+.home-widget-stage .wallpaper-clock {
+  color: rgba(255,255,255,.92); font-size: 54px; font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px;
+}
+.home-widget-stage .wallpaper-date {
+  color: rgba(255,255,255,.55); font-size: 13px; font-weight: 600; margin-bottom: 28px;
+}
+.gd-widget {
+  background: linear-gradient(160deg, #f7fbff 0%, #e8f1f9 100%);
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 18px; padding: 14px 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+  width: 220px;
+}
+.gd-widget .wh {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
+}
+.gd-widget .wh .name {
+  font-size: 12px; font-weight: 800; color: #2f7cc4; letter-spacing: 0.01em;
+}
+.gd-widget .wh .sync {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(47,124,196,.12); color: #2f7cc4;
+  display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;
+}
+.gd-widget .glu-row {
+  display: flex; align-items: baseline; gap: 8px; line-height: 1;
+}
+.gd-widget .glu {
+  font-size: 40px; font-weight: 800; color: #121212;
+}
+.gd-widget .trend {
+  font-size: 22px; font-weight: 800; color: #e31c23;
+}
+.gd-widget .meta {
+  margin-top: 6px; font-size: 11px; font-weight: 600; color: #5a6570;
+}
+.gd-widget .iob {
+  margin-top: 14px; padding-top: 10px; border-top: 1px solid rgba(47,124,196,.18);
+  font-size: 13px; font-weight: 800; color: #121212;
+}
 .ph-seg {
   display: flex; background: #f3f6fa; border-radius: 8px; padding: 3px; gap: 3px; margin-bottom: 8px;
 }
@@ -402,12 +462,13 @@ ${html}
 
 /**
  * @param {string} inner
- * @param {{ flat?: boolean, title?: string, tab?: 'Dose'|'Histórico'|'Perfil'|null, hideNav?: boolean }} [opts]
+ * @param {{ flat?: boolean, title?: string, tab?: 'Dose'|'Histórico'|'Apoiar'|'Perfil'|null, hideNav?: boolean }} [opts]
  */
 export function phoneShell(inner, { flat = false, title = 'Dose', tab = 'Dose', hideNav = false } = {}) {
   const tabs = [
     ['Dose', '💧'],
     ['Histórico', '⏱'],
+    ['Apoiar', '♥'],
     ['Perfil', '👤'],
   ]
     .map(

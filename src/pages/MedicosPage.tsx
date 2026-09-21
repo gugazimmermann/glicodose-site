@@ -176,7 +176,7 @@ export function MedicosPage() {
           <div>
             <SectionHeading
               title="IA do app do paciente"
-              subtitle="Entre consultas, o app estima carboidratos (texto, foto ou voz) e sugere dose com FSI, I:C e IOB. Esse histórico alimenta o portal — a Análise com IA do médico é outro recurso, sobre o conjunto dos registros."
+              subtitle="Entre consultas, o app estima carboidratos (texto, foto ou voz), pode puxar glicose do sensor LibreLinkUp e sugere dose com FSI, I:C e IOB ao vivo. Esse histórico alimenta o portal — a Análise com IA do médico é outro recurso, sobre o conjunto dos registros."
             />
             <Link to="/" className="text-link mt-6">
               Conhecer o app

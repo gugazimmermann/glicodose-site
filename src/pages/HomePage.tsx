@@ -11,9 +11,10 @@ const CAPABILITIES = [
   'Texto',
   'Foto',
   'Voz',
+  'Sensor',
   'IOB',
-  'Perfil prescrito',
-  'Histórico',
+  'Widget',
+  'Exportar',
   'Código médico',
   'Estimativa com IA',
 ]
@@ -26,20 +27,20 @@ const FEATURES = [
     imageAlt: 'Tela do app com foto da refeição e botão de voz',
   },
   {
-    title: 'Estimativa com perfil − IOB',
-    body: 'A sugestão de insulina rápida usa sensibilidade (FSI), razão I:C e metas do seu perfil — e já desconta a insulina ainda ativa no organismo.',
-    image: '/media/feature-app-result.png',
-    imageAlt: 'Tela do app com dose estimada de 4,5 unidades',
-  },
-  {
-    title: 'Perfil prescrito pela equipe',
-    body: 'Configure FSI, I:C e metas de glicemia conforme a orientação do seu médico. O app aplica esses parâmetros em cada estimativa.',
+    title: 'Sensor LibreLinkUp na Dose',
+    body: 'Conecte a conta de seguidor do LibreLinkUp e a glicose atual preenche a Dose automaticamente — ou continue digitando o valor manualmente.',
     image: '/media/feature-app-dose.png',
-    imageAlt: 'Tela principal do app com glicose e alimentação',
+    imageAlt: 'Tela principal do app com glicose do sensor LibreLinkUp',
   },
   {
-    title: 'Histórico e vínculo com o médico',
-    body: 'Registre glicose, refeições e doses. Com um código de seis caracteres, o profissional acompanha o histórico no portal e pode ajustar a prescrição usada no app.',
+    title: 'Estimativa com perfil − IOB',
+    body: 'A sugestão de insulina rápida usa sensibilidade (FSI), razão I:C e metas do seu perfil — desconta a insulina ainda ativa e pede confirmação da dose aplicada.',
+    image: '/media/feature-app-result.png',
+    imageAlt: 'Tela do app com dose estimada e IOB descontado',
+  },
+  {
+    title: 'Histórico, export e vínculo médico',
+    body: 'Revise registros e gráficos, exporte CSV ou relatório para a consulta. Com um código de seis caracteres, o profissional acompanha o histórico e pode ajustar a prescrição.',
     image: '/media/feature-app-code.png',
     imageAlt: 'Tela do app mostrando o código de vínculo A7K2M9',
   },
@@ -73,9 +74,9 @@ export function HomePage() {
               <span className="text-brand">com apoio de IA</span>
             </p>
             <p className="mt-5 max-w-md text-base leading-relaxed text-muted sm:text-lg">
-              Alimentação por texto, foto ou voz. A sugestão de insulina rápida
-              usa o perfil prescrito e já considera o que ainda está ativo no
-              organismo (IOB).
+              Alimentação por texto, foto ou voz. Sensor LibreLinkUp opcional.
+              A sugestão de insulina usa o perfil prescrito, desconta o IOB e
+              mostra a insulina ainda ativa no ícone do app e no widget.
             </p>
             <div className="mt-9 flex animate-fade-up delay-1 flex-wrap items-center gap-3">
               <CtaButton href={SITE_URLS.playStore} external>
@@ -125,7 +126,7 @@ export function HomePage() {
           <div>
             <SectionHeading
               title="Como usar o app"
-              subtitle="Do cadastro ao perfil prescrito, da dose com IA à confirmação da insulina aplicada, e o código para o médico acompanhar — tudo no guia passo a passo."
+              subtitle="Do cadastro ao sensor e ao perfil prescrito, da dose com IA à confirmação da insulina aplicada, e o código para o médico acompanhar — tudo no guia passo a passo."
             />
             <Link
               to="/como-usar#paciente"
@@ -147,13 +148,13 @@ export function HomePage() {
         <div className="section-inner grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <SectionHeading
-              title="A IA já desconta o IOB"
-              subtitle="A estimativa avisa quando ainda há insulina ativa e desconta esse valor da sugestão — para você não somar doses sem querer. Sempre uma ferramenta de apoio à prescrição da sua equipe."
+              title="IOB ao vivo e widget na tela inicial"
+              subtitle="A estimativa já desconta a insulina ativa. O IOB continua atualizando no ícone do app e na barra de status — e no Android você pode fixar um widget com glicose do sensor e insulina ainda ativa."
             />
           </div>
           <MediaFrame
-            src="/media/feature-app-result.png"
-            alt="Estimativa de dose com IOB descontado"
+            src="/media/feature-app-widget.png"
+            alt="Widget do GlicoDose com glicose e IOB na tela inicial"
           />
         </div>
       </section>
