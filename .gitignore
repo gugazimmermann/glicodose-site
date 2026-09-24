@@ -24,3 +24,5 @@ scripts/generated
 *.sln
 *.sw?
 .env
+.vercel
+.env*
