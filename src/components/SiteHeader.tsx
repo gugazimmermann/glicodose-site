@@ -45,6 +45,9 @@ export function SiteHeader() {
           <NavLink to="/apoiar" className={linkClass}>
             Apoiar
           </NavLink>
+          <NavLink to="/contato" className={linkClass}>
+            Contato
+          </NavLink>
         </nav>
 
         <button
@@ -87,6 +90,13 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
           >
             Apoiar
+          </NavLink>
+          <NavLink
+            to="/contato"
+            className={linkClass}
+            onClick={() => setOpen(false)}
+          >
+            Contato
           </NavLink>
         </nav>
       ) : null}

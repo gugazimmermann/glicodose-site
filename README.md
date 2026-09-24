@@ -17,6 +17,7 @@ Landing pages do produto GlicoDose — app do paciente, portal médico e apoio (
 | `/medicos` | Landing do portal — CTA para `medicos.glicodose.app` |
 | `/como-usar` | Guia passo a passo (toggle Paciente / Médico; âncoras `#paciente` e `#medico`) |
 | `/apoiar` | Assinatura mensal opcional (Stripe Checkout público) |
+| `/contato` | Formulário de contato (Edge Function `send-contact` + Resend) |
 
 Copy alinhada ao produto atual: o médico acompanha histórico **e** pode editar a prescrição usada no app.
 
@@ -47,6 +48,8 @@ VITE_MEDICOS_URL=https://medicos.glicodose.app
 ```
 
 O checkout de `/apoiar` chama a Edge Function `create-public-support-checkout` (deploy no projeto `diabetes-medicos`).
+
+O formulário de `/contato` chama `send-contact` (mesmo projeto). Secrets Resend e verificação de domínio: ver `diabetes-medicos/supabase/README.md` (seção Contato).
 
 ## Assets de marketing
 

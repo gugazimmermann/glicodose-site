@@ -4,6 +4,7 @@ import { SiteFooter } from './components/SiteFooter'
 import { SiteHeader } from './components/SiteHeader'
 import { ApoiarPage } from './pages/ApoiarPage'
 import { ComoUsarPage } from './pages/ComoUsarPage'
+import { ContatoPage } from './pages/ContatoPage'
 import { HomePage } from './pages/HomePage'
 import { MedicosPage } from './pages/MedicosPage'
 import { usePageMeta } from './hooks/usePageMeta'
@@ -21,6 +22,7 @@ function AppShell() {
           <Route path="/medicos" element={<MedicosPage />} />
           <Route path="/como-usar" element={<ComoUsarPage />} />
           <Route path="/apoiar" element={<ApoiarPage />} />
+          <Route path="/contato" element={<ContatoPage />} />
         </Routes>
       </main>
       <SiteFooter />

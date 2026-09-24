@@ -41,3 +41,26 @@ export async function createPublicSupportCheckout(options: {
   if (!url) throw new Error('Não foi possível iniciar o checkout.')
   return url
 }
+
+export async function createPublicSupportPortal(options: {
+  email: string
+  returnUrl: string
+}): Promise<string> {
+  const { data, error } = await supabase.functions.invoke(
+    'create-public-support-portal',
+    {
+      body: {
+        email: options.email,
+        returnUrl: options.returnUrl,
+      },
+    },
+  )
+
+  if (error) throw error
+
+  const url = (data as { url?: string; error?: string } | null)?.url
+  const apiError = (data as { error?: string } | null)?.error
+  if (apiError) throw new Error(apiError)
+  if (!url) throw new Error('Não foi possível abrir o portal de assinatura.')
+  return url
+}

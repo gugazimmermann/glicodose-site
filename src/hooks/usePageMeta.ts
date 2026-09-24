@@ -30,6 +30,12 @@ const META: Record<
       'Guia passo a passo: app do paciente (perfil, sensor LibreLinkUp, dose com IA, IOB ao vivo, widget, export) e portal médico (vínculo por código, prescrição, Análise com IA).',
     ogImage: '/media/og-app.png',
   },
+  '/contato': {
+    title: 'Contato — GlicoDose',
+    description:
+      'Fale com a equipe GlicoDose: dúvidas, sugestões ou suporte. Envie uma mensagem para contato@glicodose.app.',
+    ogImage: '/media/og-app.png',
+  },
 }
 
 function absoluteUrl(path: string): string {

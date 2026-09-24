@@ -1,6 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { appBaseUrl, createPublicSupportCheckout } from '../lib/supportApi'
+import {
+  appBaseUrl,
+  createPublicSupportCheckout,
+  createPublicSupportPortal,
+} from '../lib/supportApi'
 import {
   SUPPORT_PLAN_KEYS,
   SUPPORT_PLAN_LABELS,
@@ -20,12 +24,15 @@ function BusyDot() {
 export function ApoiarPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [busyPlan, setBusyPlan] = useState<SupportPlanKey | null>(null)
+  const [portalBusy, setPortalBusy] = useState(false)
+  const [portalEmail, setPortalEmail] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [banner, setBanner] = useState<'sucesso' | 'cancelado' | null>(null)
 
   useEffect(() => {
     const onPageShow = () => {
       setBusyPlan(null)
+      setPortalBusy(false)
     }
     window.addEventListener('pageshow', onPageShow)
     return () => window.removeEventListener('pageshow', onPageShow)
@@ -63,6 +70,28 @@ export function ApoiarPage() {
     }
   }
 
+  async function handlePortal(e: FormEvent) {
+    e.preventDefault()
+    setError(null)
+    setPortalBusy(true)
+    try {
+      const url = await createPublicSupportPortal({
+        email: portalEmail.trim(),
+        returnUrl: `${appBaseUrl()}/apoiar`,
+      })
+      window.location.assign(url)
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Não foi possível abrir o portal de assinatura. Tente novamente.',
+      )
+      setPortalBusy(false)
+    }
+  }
+
+  const anyBusy = busyPlan !== null || portalBusy
+
   return (
     <div className="section-band">
       <div className="section-inner max-w-3xl py-14 sm:py-20">
@@ -84,7 +113,8 @@ export function ApoiarPage() {
             className="animate-fade-up mt-8 rounded-xl border border-brand-soft bg-brand-softer/50 px-4 py-3 text-sm text-brand-dark"
             role="status"
           >
-            Obrigado por apoiar o GlicoDose!
+            Obrigado por apoiar o GlicoDose! Para cancelar ou gerenciar, use a
+            seção abaixo com o e-mail do checkout.
             <button
               type="button"
               className="ml-3 font-semibold underline-offset-2 hover:underline"
@@ -134,7 +164,13 @@ export function ApoiarPage() {
                 className={[
                   'animate-fade-up rounded-2xl border border-line/80 bg-white/90 p-5 shadow-sm',
                   'transition-[border-color,box-shadow] hover:border-brand/50',
-                  i === 0 ? '' : i === 1 ? 'delay-1' : i === 2 ? 'delay-2' : 'delay-3',
+                  i === 0
+                    ? ''
+                    : i === 1
+                      ? 'delay-1'
+                      : i === 2
+                        ? 'delay-2'
+                        : 'delay-3',
                 ].join(' ')}
               >
                 <p className="text-lg font-semibold tracking-tight text-ink">
@@ -144,12 +180,12 @@ export function ApoiarPage() {
                   {displayPriceLabel(plan)}
                 </p>
                 <p className="mt-2 text-sm text-muted">
-                  Renovação automática. Cancele quando quiser no portal Stripe.
+                  Renovação automática · cancele abaixo
                 </p>
                 <button
                   type="button"
                   className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-4 py-3 text-sm font-bold text-white shadow-md shadow-brand-dark/15 transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-70"
-                  disabled={busy || busyPlan !== null}
+                  disabled={anyBusy}
                   onClick={() => void handleCheckout(plan)}
                 >
                   {busy ? <BusyDot /> : null}
@@ -159,6 +195,41 @@ export function ApoiarPage() {
             )
           })}
         </div>
+
+        <form
+          onSubmit={(e) => void handlePortal(e)}
+          className="animate-fade-up mt-12 rounded-2xl border border-line/80 bg-white/90 p-5 shadow-sm sm:p-6"
+        >
+          <h2 className="font-display text-xl font-bold tracking-tight text-brand-dark">
+            Já é apoiador?
+          </h2>
+          <p className="mt-2 text-sm text-muted">
+            Informe o e-mail usado no checkout para gerenciar ou cancelar a
+            assinatura no portal Stripe.
+          </p>
+          <label className="mt-4 block">
+            <span className="sr-only">E-mail do checkout</span>
+            <input
+              type="email"
+              name="email"
+              autoComplete="email"
+              required
+              value={portalEmail}
+              onChange={(e) => setPortalEmail(e.target.value)}
+              placeholder="seu@email.com"
+              className="w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition-[border-color,box-shadow] placeholder:text-muted/70 focus:border-brand focus:ring-2 focus:ring-brand/20"
+              disabled={anyBusy}
+            />
+          </label>
+          <button
+            type="submit"
+            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-brand/40 bg-brand-softer/60 px-4 py-3 text-sm font-bold text-brand-dark transition-colors hover:border-brand hover:bg-brand-softer disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+            disabled={anyBusy || !portalEmail.trim()}
+          >
+            {portalBusy ? <BusyDot /> : null}
+            Gerenciar ou cancelar assinatura
+          </button>
+        </form>
 
         <p className="mt-10 text-center text-sm text-muted">
           Quer conhecer o produto?{' '}
