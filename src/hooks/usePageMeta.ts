@@ -9,25 +9,25 @@ const META: Record<
   '/': {
     title: 'GlicoDose — App do paciente',
     description:
-      'Glicose (manual ou LibreLinkUp), alimentação por texto/foto/voz e estimativa de insulina com IA e IOB ao vivo — inclusive no widget. Histórico e export compartilhados com o médico por código. Ferramenta de apoio — não substitui orientação médica.',
+      'Glicose manual, LibreLinkUp ou Health, alimentação por texto, foto ou voz, e estimativa de insulina com o perfil e o IOB. Histórico, exportação e código para o médico. Ferramenta de apoio — não substitui orientação médica.',
     ogImage: '/media/og-app.png',
   },
   '/medicos': {
     title: 'GlicoDose Médicos — Portal para profissionais',
     description:
-      'Portal para médicos: vincule pacientes por código, edite a prescrição, acompanhe histórico e gráficos, e use a Análise com IA — em apoio à consulta.',
+      'Portal para médicos: vínculo por código de 6 caracteres, prescrição, histórico, gráficos e alertas clínicos. A Análise com IA acompanha a consulta para quem apoia.',
     ogImage: '/media/og-medicos.png',
   },
   '/apoiar': {
     title: 'Apoiar o GlicoDose',
     description:
-      'O app e o portal são gratuitos. Assinatura mensal opcional ajuda a manter infraestrutura e IA do GlicoDose.',
+      'Assinatura mensal opcional. No app, libera LibreLinkUp, Apple Health, Health Connect e o widget. No portal, libera a Análise com IA. Dose, histórico e o acompanhamento clínico continuam gratuitos.',
     ogImage: '/media/og-app.png',
   },
   '/como-usar': {
     title: 'Como usar o GlicoDose',
     description:
-      'Guia passo a passo: app do paciente (perfil, sensor LibreLinkUp, dose com IA, IOB ao vivo, widget, export) e portal médico (vínculo por código, prescrição, Análise com IA).',
+      'Guia do app (perfil, sensor, Health, dose, hipoglicemia, basal, exportação) e do portal médico (vínculo, prescrição, alertas clínicos e Análise com IA).',
     ogImage: '/media/og-app.png',
   },
   '/contato': {

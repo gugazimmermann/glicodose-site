@@ -11,11 +11,20 @@ const CAPABILITIES = [
   'Análise com IA',
   'Histórico do paciente',
   'Gráficos',
-  'Código de 6 dígitos',
+  'Código de 6 caracteres',
   'Prescrição',
   'FSI / I:C',
-  'Discrepâncias',
+  'Alertas clínicos',
   'Na consulta',
+]
+
+const ALERTS = [
+  'Hipoglicemias em sequência',
+  'Várias hipoglicemias',
+  'Hiperglicemias elevadas',
+  'Gap entre dose recomendada e aplicada',
+  'Alta variabilidade',
+  'Acima da meta recente',
 ]
 
 const FEATURES = [
@@ -27,19 +36,19 @@ const FEATURES = [
   },
   {
     title: 'Vínculo em 6 caracteres',
-    body: 'O paciente gera o código no app. Você digita no portal. Sem compartilhar senha — histórico, gráficos e edição da prescrição (FSI, I:C, metas).',
+    body: 'O paciente gera o código no app. Você digita no portal. Sem compartilhar senha — histórico, gráficos e a prescrição que o app usa no cálculo.',
     image: '/media/feature-medicos-link.png',
     imageAlt: 'Tela de vínculo por código no portal médico',
   },
   {
     title: 'Histórico e gráficos na consulta',
-    body: 'Glicemia, alimentação e insulina aplicadas em linha do tempo, com gráficos de tendência para apoiar a conversa.',
+    body: 'Glicemia, refeição (texto ou foto) e insulina em linha do tempo, com gráficos de tendência para apoiar a conversa. Os registros permanecem como o paciente anotou.',
     image: '/media/feature-medicos-charts.png',
     imageAlt: 'Histórico do paciente com gráficos e eventos',
   },
   {
     title: 'Análise com IA no portal',
-    body: 'No histórico, escolha o período e rode a Análise com IA: discrepâncias, irregularidades e possíveis ajustes de FSI, I:C e metas — apoio à revisão clínica.',
+    body: 'Para quem apoia o GlicoDose: escolha o período e rode a análise. Ela aponta achados e pode sugerir FSI, I:C, metas, passo e duração — você confirma antes de gravar na prescrição.',
     image: '/media/feature-medicos-ai.png',
     imageAlt: 'Painel Análise com IA no portal médico',
   },
@@ -73,9 +82,9 @@ export function MedicosPage() {
               <span className="text-brand">Análise com IA</span>
             </p>
             <p className="mt-5 max-w-md text-base leading-relaxed text-muted sm:text-lg">
-              Vincule pacientes por código, acompanhe glicemia e insulina e
-              rode a Análise com IA no histórico para apoiar a revisão na
-              consulta.
+              O acompanhamento clínico é gratuito: vínculo por código,
+              prescrição, histórico, alertas e gráficos. A Análise com IA entra
+              com a assinatura de apoio, para a revisão na consulta.
             </p>
             <div className="mt-9 flex animate-fade-up delay-1 flex-wrap items-center gap-3">
               <CtaButton href={SITE_URLS.medicosPortal} external>
@@ -107,18 +116,45 @@ export function MedicosPage() {
         <div className="section-inner">
           <SectionHeading
             title="O que o portal oferece"
-            subtitle="Acompanhamento clínico com vínculo simples, gráficos e Análise com IA sobre o histórico do paciente."
+            subtitle="Vínculo por código, prescrição que vale no app, histórico e gráficos. A Análise com IA fica para quem apoia."
           />
           <FeatureGrid items={FEATURES} className="mt-12 sm:mt-14" />
         </div>
       </section>
 
       <section className="section-band border-t border-line/40">
+        <div className="section-inner grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <SectionHeading
+              title="Alertas clínicos no histórico"
+              subtitle="Regras fixas sobre os últimos 30 dias. Quando não há nada a sinalizar, a tela diz isso."
+            />
+            <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+              {ALERTS.map((label) => (
+                <li
+                  key={label}
+                  className="rounded-xl border border-line/70 bg-white/90 px-4 py-3 text-sm font-semibold text-brand-dark shadow-sm"
+                >
+                  {label}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <SectionHeading
+              title="A prescrição que o app usa"
+              subtitle="O que você salva no portal passa a valer no cálculo do paciente: meta do dia e da noite, janela noturna, FSI e razão I:C por horário, insulina rápida e basal."
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="section-band section-band-white border-t border-line/40">
         <div className="section-inner grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <SectionHeading
               title="Análise com IA"
-              subtitle="No histórico do paciente, selecione o período (7 dias, 30 dias ou tudo) e peça a análise. A IA do portal aponta discrepâncias, irregularidades, melhorias e possíveis ajustes de parâmetros — como apoio à sua revisão, não como prescrição automática."
+              subtitle="No histórico, escolha 7 dias, 30 dias ou tudo. A análise resume o período, lista prioridades da consulta e achados com evidência. Ela sugere FSI, razão I:C, metas, passo da dose e duração — com a sua confirmação antes de gravar. Não define a dose em unidades. Análises anteriores ficam salvas para reabrir. Esse recurso acompanha a assinatura de apoio; o resto do portal segue disponível."
             />
           </div>
           <MediaFrame
@@ -128,7 +164,7 @@ export function MedicosPage() {
         </div>
       </section>
 
-      <section className="section-band section-band-white border-t border-line/40">
+      <section className="section-band border-t border-line/40">
         <div className="section-inner grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div>
             <SectionHeading

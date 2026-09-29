@@ -103,8 +103,14 @@ export function ApoiarPage() {
             Apoiar o GlicoDose
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-            O app e o portal são gratuitos. Se quiser, uma assinatura mensal
-            ajuda a manter infraestrutura e IA.
+            Dose, histórico, pet e lembretes seguem gratuitos no app. No
+            portal, a lista de pacientes, o vínculo, a prescrição, o histórico,
+            os alertas clínicos e os gráficos também.
+          </p>
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+            A assinatura mensal libera, no app, o LibreLinkUp, o Apple Health
+            ou Health Connect e o widget da tela inicial. No portal, libera a
+            Análise com IA.
           </p>
         </div>
 

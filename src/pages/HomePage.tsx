@@ -14,9 +14,49 @@ const CAPABILITIES = [
   'Sensor',
   'IOB',
   'Widget',
+  'Hipoglicemia',
+  'Basal',
+  'Alertas',
+  'Health',
+  'PDF',
   'Exportar',
   'Código médico',
   'Estimativa com IA',
+]
+
+const DAY_TO_DAY = [
+  {
+    title: 'Quanto comer para o alvo',
+    body: 'Quando a glicose está abaixo da meta, o app sugere gramas de carboidrato rápido e porções de exemplo, já descontando a insulina ainda ativa.',
+  },
+  {
+    title: 'Insulina basal e lembretes',
+    body: 'Registre a basal do dia, com nome, unidades e horário. No perfil, até dois horários podem avisar todo dia. Essa insulina não entra no IOB da rápida.',
+  },
+  {
+    title: 'Alertas de glicose e padrões',
+    body: 'Com o sensor ligado, o app avisa glicose baixa, glicose alta e sensor sem dados. Também pode lembrar um lanche antes de uma queda que se repete naquele dia e horário.',
+  },
+  {
+    title: 'Apple Health e Health Connect',
+    body: 'Quem apoia pode usar a última glicose do Apple Health ou do Health Connect na Dose e trazer o histórico recente. A digitação manual continua disponível.',
+  },
+  {
+    title: 'Exportação para a consulta',
+    body: 'Além do CSV e do relatório em texto, o histórico sai em PDF, com bolus e basal, para levar ao médico.',
+  },
+  {
+    title: 'Receitas salvas',
+    body: 'A refeição da dose pode virar uma receita. Na próxima vez, ela entra na estimativa junto com texto, foto ou voz.',
+  },
+  {
+    title: 'Exercício, doença e álcool',
+    body: 'Um ajuste opcional reduz ou aumenta só a parte da comida da estimativa. O resultado deixa claro que é uma sugestão conservadora.',
+  },
+  {
+    title: 'Pet ou modo discreto',
+    body: 'Horas no alvo viram gotas, conquistas e um mascote — ou títulos clínicos, no modo discreto. Quem acompanha a casa do pet vê o progresso, sem glicose nem doses.',
+  },
 ]
 
 const FEATURES = [
@@ -40,7 +80,7 @@ const FEATURES = [
   },
   {
     title: 'Histórico, export e vínculo médico',
-    body: 'Revise registros e gráficos, exporte CSV ou relatório para a consulta. Com um código de seis caracteres, o profissional acompanha o histórico e pode ajustar a prescrição.',
+    body: 'Revise registros e gráficos e exporte CSV, PDF ou relatório para a consulta. Com um código de seis caracteres, o profissional acompanha o histórico e pode ajustar a prescrição.',
     image: '/media/feature-app-code.png',
     imageAlt: 'Tela do app mostrando o código de vínculo A7K2M9',
   },
@@ -118,6 +158,26 @@ export function HomePage() {
             subtitle="Recursos pensados para quem precisa registrar glicose e refeição e receber uma estimativa clara — sem complicar o dia a dia."
           />
           <FeatureGrid items={FEATURES} className="mt-12 sm:mt-14" />
+          <SectionHeading
+            className="mt-16 sm:mt-20"
+            title="Também no dia a dia"
+            subtitle="Hipoglicemia, basal, alertas, saúde do celular, exportação e um modo mais leve para acompanhar o cuidado."
+          />
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+            {DAY_TO_DAY.map((item) => (
+              <li
+                key={item.title}
+                className="rounded-2xl border border-line/70 bg-white/90 p-5 shadow-sm"
+              >
+                <h3 className="font-display text-lg font-bold text-brand-dark">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+                  {item.body}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -149,7 +209,7 @@ export function HomePage() {
           <div>
             <SectionHeading
               title="IOB ao vivo e widget na tela inicial"
-              subtitle="A estimativa já desconta a insulina ativa. O IOB continua atualizando no ícone do app e na barra de status — e no Android você pode fixar um widget com glicose do sensor e insulina ainda ativa."
+              subtitle="A estimativa já desconta a insulina ativa. O IOB continua atualizando no ícone do app e na barra de status. No Android e no iPhone, quem apoia o GlicoDose pode fixar um widget com a glicose do sensor e a insulina ainda ativa."
             />
           </div>
           <MediaFrame
