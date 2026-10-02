@@ -27,6 +27,12 @@ export function SiteFooter() {
           <Link to="/contato" className="text-brand-dark hover:text-brand">
             Contato
           </Link>
+          <Link to="/privacidade" className="text-brand-dark hover:text-brand">
+            Privacidade
+          </Link>
+          <Link to="/excluir-conta" className="text-brand-dark hover:text-brand">
+            Excluir conta
+          </Link>
         </nav>
         <p className="mt-3 text-xs text-muted/70">
           © {new Date().getFullYear()} GlicoDose

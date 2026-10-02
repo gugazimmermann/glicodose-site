@@ -18,6 +18,8 @@ Landing pages do produto GlicoDose — app do paciente, portal médico e apoio (
 | `/como-usar` | Guia passo a passo (toggle Paciente / Médico; âncoras `#paciente` e `#medico`) |
 | `/apoiar` | Assinatura mensal opcional (Stripe Checkout público) |
 | `/contato` | Formulário de contato (Edge Function `send-contact` + Resend) |
+| `/privacidade` | Política de privacidade do app (`https://glicodose.app/privacidade`) |
+| `/excluir-conta` | Pedido de exclusão da conta (`https://glicodose.app/excluir-conta`) |
 
 Copy alinhada ao produto atual: o médico acompanha histórico **e** pode editar a prescrição usada no app.
 

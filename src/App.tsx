@@ -5,7 +5,9 @@ import { SiteHeader } from './components/SiteHeader'
 import { ApoiarPage } from './pages/ApoiarPage'
 import { ComoUsarPage } from './pages/ComoUsarPage'
 import { ContatoPage } from './pages/ContatoPage'
+import { ExcluirContaPage } from './pages/ExcluirContaPage'
 import { HomePage } from './pages/HomePage'
+import { PrivacidadePage } from './pages/PrivacidadePage'
 import { MedicosPage } from './pages/MedicosPage'
 import { usePageMeta } from './hooks/usePageMeta'
 
@@ -23,6 +25,8 @@ function AppShell() {
           <Route path="/como-usar" element={<ComoUsarPage />} />
           <Route path="/apoiar" element={<ApoiarPage />} />
           <Route path="/contato" element={<ContatoPage />} />
+          <Route path="/privacidade" element={<PrivacidadePage />} />
+          <Route path="/excluir-conta" element={<ExcluirContaPage />} />
         </Routes>
       </main>
       <SiteFooter />

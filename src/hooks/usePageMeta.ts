@@ -36,6 +36,18 @@ const META: Record<
       'Fale com a equipe GlicoDose: dúvidas, sugestões ou suporte. Envie uma mensagem para contato@glicodose.app.',
     ogImage: '/media/og-app.png',
   },
+  '/privacidade': {
+    title: 'Política de privacidade — GlicoDose',
+    description:
+      'Como o GlicoDose coleta, usa e compartilha dados de conta, saúde, foto, voz, Health Connect, LibreLinkUp e assinatura de apoio.',
+    ogImage: '/media/og-app.png',
+  },
+  '/excluir-conta': {
+    title: 'Excluir conta — GlicoDose',
+    description:
+      'Como pedir a exclusão da conta GlicoDose, o que é apagado e o que pode ser mantido por lei ou na assinatura da loja.',
+    ogImage: '/media/og-app.png',
+  },
 }
 
 function absoluteUrl(path: string): string {
